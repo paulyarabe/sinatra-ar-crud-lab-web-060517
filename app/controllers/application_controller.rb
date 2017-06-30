@@ -12,7 +12,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/posts' do
-    @post = Post.create(params[:post])
+    @post = Post.create(params)
 
     redirect "/posts"
   end
@@ -22,8 +22,10 @@ class ApplicationController < Sinatra::Base
   end
 
   patch '/posts/:id' do
-    Post.find_by_id(params[:id]).update(params[:post])
     @post = Post.find_by_id(params[:id])
+    @post.name = params[:name]
+    @post.content = params[:content]
+    @post.save
     redirect "/posts/#{@post.id}"
   end
 

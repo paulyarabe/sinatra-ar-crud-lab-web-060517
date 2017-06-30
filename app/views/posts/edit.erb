@@ -2,10 +2,10 @@
 <%=@post.content%>
 
 <form action="/posts/<%=@post.id %>" method="post">
-  <input id="hidden" type="hidden"  name="_method" value="patch">
+  <input id="hidden" type="hidden" name="_method" value="patch">
   <label>Name</label>
-  <input id="name" type="text" name="post[name]">
+  <input id="name" type="text" name="name">
   <label>Content</label>
-  <input id="content" type="text" name="post[content]">
-  <input id="submit" type="submit" name="submit" value="Submit">
+  <input id="content" type="text" name="content">
+  <input id="submit" type="submit" value="Submit">
 </form>
